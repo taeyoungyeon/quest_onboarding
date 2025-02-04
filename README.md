@@ -81,16 +81,12 @@ chmod +x training_with_checkpoint.py simulate_failure.py submit_job.sh watchdog.
 To run the checkpointing job, submit it via SLURM with:  
 sbatch submit_job.sh
 
-markdown
-Copy
 This will execute `training_with_checkpoint.py` under SLURM control.
 
 5. **Monitor and Auto-Resubmit with the Watchdog**  
 To automatically monitor the job and resubmit if it fails, run:  
 ./watchdog.sh
 
-markdown
-Copy
 The watchdog script submits the job via `submit_job.sh`, monitors its status using SLURM commands, and resubmits it if the final state is not "COMPLETED".
 
 ---
