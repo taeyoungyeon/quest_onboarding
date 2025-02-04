@@ -1,9 +1,11 @@
 #!/bin/bash
+# account means our project allocation
+#SBATCH --account=p32139
 #SBATCH --job-name=quest_checkpoint
 #SBATCH --output=checkpoint_job.log
 #SBATCH --error=checkpoint_job.err
 #SBATCH --time=02:00:00   # Set maximum job run time (hh:mm:ss)
-#SBATCH --partition=standard
+#SBATCH --partition=short
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 
@@ -14,4 +16,4 @@ module load python/3.8
 # source ~/anaconda3/bin/activate quest_env
 
 # Run the Python script for checkpointing
-python3 example1_checkpoint.py
+python3 1. training_with_checkpoint.py

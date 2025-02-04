@@ -8,6 +8,7 @@ can be re-run to resume from the last checkpoint.
 """
 
 import os
+import sys
 import time
 
 # File used to store the checkpoint (last completed step)
@@ -40,16 +41,16 @@ def perform_job(start_step):
     total_steps = 100  # Total number of steps in the job
     for step in range(start_step, total_steps):
         print(f"Processing step {step + 1}/{total_steps}")
-        time.sleep(1)  # Simulate work
+        time.sleep(1)  # Simulate work delay
 
         # Save a checkpoint every 10 steps
         if (step + 1) % 10 == 0:
             save_checkpoint(step + 1)
 
-        # Simulate an interruption at step 51 for demonstration purposes
-        if step == 50:
+        # Simulate an interruption at step 51 only if it's the initial run
+        if start_step == 0 and step == 50:
             print("Simulated interruption at step 51!")
-            return
+            sys.exit(1)
 
 def main():
     start_step = load_checkpoint()

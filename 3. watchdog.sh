@@ -3,14 +3,14 @@
 # This script submits the job using sbatch and monitors its status via SLURM.
 # If the job fails or does not complete successfully, it will automatically resubmit it.
 
-# Set the job submission script to run
-JOB_SCRIPT="submit_job.sh"
+# Set the job submission script to run (ensure proper quoting for filenames with spaces)
+JOB_SCRIPT="2. submit_job.sh"
 # Set the log file for watchdog activity
 LOG_FILE="watchdog.log"
 
 while true; do
     # Submit the job and capture the output (e.g., "Submitted batch job 123456")
-    SUBMIT_OUTPUT=$(sbatch $JOB_SCRIPT)
+    SUBMIT_OUTPUT=$(sbatch "$JOB_SCRIPT")
     # Extract the job ID (assuming it's the fourth field)
     JOB_ID=$(echo $SUBMIT_OUTPUT | awk '{print $4}')
     echo "$(date): Submitted job $JOB_ID" >> "$LOG_FILE"

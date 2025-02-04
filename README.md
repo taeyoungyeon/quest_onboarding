@@ -11,8 +11,6 @@ This guide provides example scripts and instructions to help you run and monitor
 
 - **training_with_checkpoint.py**  
   A Python script that implements automated job restart with checkpointing. It saves progress every 10 steps and resumes from the last checkpoint if interrupted.
-- **simulate_failure.py**  
-  A Python script that intentionally simulates a job failure after several iterations. This is useful for testing the watchdog mechanism.
 - **submit_job.sh**  
   A SLURM job submission script that submits a job (e.g., running `training_with_checkpoint.py`). Adjust this script as needed for your environment.
 - **watchdog.sh**  
@@ -47,9 +45,6 @@ These resources help ensure that you can effectively use Quest for your computat
   Implements checkpointing logic:
   - Saves the current step to a file every 10 steps.
   - On restart, reads the checkpoint file and resumes processing.
-  
-- **simulate_failure.py**  
-  Simulates a job that fails intentionally (useful for testing the watchdog).
 
 - **submit_job.sh**  
   A SLURM submission script that loads required modules and executes the Python script (e.g., `training_with_checkpoint.py`).
@@ -65,29 +60,32 @@ These resources help ensure that you can effectively use Quest for your computat
 ## Usage Instructions
 
 1. **Upload Files to Quest**  
-   Transfer all files (`training_with_checkpoint.py`, `simulate_failure.py`, `submit_job.sh`, and `watchdog.sh`) to your Quest working directory using SCP or SFTP.
+  1) you can git clone your directory inside the Quest.
+  2) Transfer all dataset files to your Quest working directory using SCP or SFTP.
 
 2. **Log in to Quest**  
    Connect via SSH by running:  
-ssh your_username@quest.northwestern.edu
+  ```
+    ssh your_username@quest.northwestern.edu
+  ```
 
-Replace `your_username` with your actual Quest username.
+Replace `your_username` with your actual Quest username (Northwestern NetID).
 
 3. **Set Execution Permissions**  
 In your working directory, run:  
-chmod +x training_with_checkpoint.py simulate_failure.py submit_job.sh watchdog.sh
+chmod +x 1. training_with_checkpoint.py 2. submit_job.sh 3. watchdog.sh
 
 4. **Submit a Job**  
 To run the checkpointing job, submit it via SLURM with:  
-sbatch submit_job.sh
+sbatch 2. submit_job.sh
 
-This will execute `training_with_checkpoint.py` under SLURM control.
+This will execute `1. training_with_checkpoint.py` under SLURM control.
 
 5. **Monitor and Auto-Resubmit with the Watchdog**  
 To automatically monitor the job and resubmit if it fails, run:  
-./watchdog.sh
+./3. watchdog.sh
 
-The watchdog script submits the job via `submit_job.sh`, monitors its status using SLURM commands, and resubmits it if the final state is not "COMPLETED".
+The watchdog script submits the job via `2. submit_job.sh`, monitors its status using SLURM commands, and resubmits it if the final state is not "COMPLETED".
 
 ---
 
