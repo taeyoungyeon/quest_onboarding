@@ -7,6 +7,8 @@ Quest is Northwestern University's high-performance computing system designed fo
 - **Logging into Quest Tutorial:** [https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=505](https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=505)
 - **Transferring Files on Quest:** [https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1535](https://services.northwestern.edu/TDClient/30/Portal/KB/ArticleDet?ID=1535)
 
+You can manage your scripts in /projects/p32139 (our allocation name), which provides you with 2TB of space. In your home directory (/home/your_net_id), you have 80GB of space available. You can also add your dependencies or local settings (such as SSH keys) there. All tasks are managed by submitting jobs, and you can test your settings locally before submitting jobs for GPU usage.
+
 This guide provides example scripts and instructions to help you run and monitor jobs on Quest using SLURM. The repository includes the following files:
 
 - **training_with_checkpoint.py**  
@@ -20,22 +22,9 @@ This guide provides example scripts and instructions to help you run and monitor
 
 ## Table of Contents
 
-- [About Quest](#about-quest)
 - [Files Overview](#files-overview)
 - [Usage Instructions](#usage-instructions)
 - [Additional Notes](#additional-notes)
-
----
-
-## About Quest
-
-Quest is designed to offer a reliable computing environment with robust support for running complex and long-running computational jobs. It comes with comprehensive documentation and support materials:
-
-- **Documentation:** Detailed guides on Quest features and best practices are available via the Northwestern IT Knowledge Base.
-- **User Guides and Tutorials:** New users can refer to the Quest User Guide, video tutorials, and a quick-start video on logging in.
-- **File Transfer:** Instructions on transferring files to and from Quest are provided in the Knowledge Base.
-
-These resources help ensure that you can effectively use Quest for your computational work.
 
 ---
 
@@ -59,21 +48,25 @@ These resources help ensure that you can effectively use Quest for your computat
 
 ## Usage Instructions
 
-1. **Upload Files to Quest**  
-  1) you can git clone your directory inside the Quest.
-  2) Transfer all dataset files to your Quest working directory using SCP or SFTP.
-
-2. **Log in to Quest**  
+1. **Log in to Quest**  
    Connect via SSH by running:  
   ```
     ssh your_username@quest.northwestern.edu
   ```
 
-Replace `your_username` with your actual Quest username (Northwestern NetID).
+Replace `your_username` with your actual Quest username (Northwestern NetID) and password would be your NetID Password.
+
+2. **Upload Files to Quest**  
+For this repo, it is public so you can just clone and take a try. You should be allocated first to run script in the Quest Server. 
+You can git clone your directory inside the Quest, and transfer all dataset files to your Quest working directory using SCP or SFTP.
+
+Try to use FileZilla(https://filezilla-project.org/) for easy file transfer. 
 
 3. **Set Execution Permissions**  
-In your working directory, run:  
+For testing this directory, run:  
 chmod +x 1. training_with_checkpoint.py 2. submit_job.sh 3. watchdog.sh
+
+You also need to change your job script's mode for execution.
 
 4. **Submit a Job**  
 To run the checkpointing job, submit it via SLURM with:  
