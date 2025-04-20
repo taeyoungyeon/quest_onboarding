@@ -6,7 +6,7 @@ The CS Slurm Cluster provides computing resources with 4 A40 GPUs and 2TB of sto
 
 ## Documentation
 
-- [Comprehensive SLURM Documentation (PDF)](./Slrum/SLURM_Documentation-2.pdf)
+- [Comprehensive SLURM Documentation (PDF)](./Slurm/SLURM_Documentation-2.pdf)
 
 ## Storage
 
