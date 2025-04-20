@@ -27,9 +27,9 @@ Note: Workstations are primarily for PhD students. If you need access to local w
 ## Documentation
 
 For detailed instructions on each computing environment, please refer to:
-- [Quest Documentation](./Quest.md) - Quest HPC environment setup and usage
-- [Slurm Documentation](./Slurm.md) - CS Slurm cluster configuration and job submission
-- [Lab Server Documentation](./Lab_server.md) - Local workstation access and usage policies
+- [Quest Documentation](./QUEST.md) - Quest HPC environment setup and usage
+- [Slurm Documentation](./SLURM.md) - CS Slurm cluster configuration and job submission
+- [Lab Server Documentation](./LAB_SERVER.md) - Local workstation access and usage policies
 
 ## Getting Started
 
