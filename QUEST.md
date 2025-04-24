@@ -21,11 +21,14 @@ Quest is Northwestern University's high-performance computing system designed fo
 
 ## Requesting Allocation Access
 
-Use this link to request access:
+Use this link to request access for p32139, b1218:
 https://app.smartsheet.com/b/form/797775d810274db5889b5199c4260328
 
-- For pXXXXX allocations: List Professor Karan Ahuja as Allocation manager and PI
-- For bXXXX allocations: List Bryan A Pardo (bap335) as Allocation manager and Predrag S Bundalo (psb996) as PI
+Use this link to request access for p32139, b1042:
+https://app.smartsheet.com/b/form/f6e96bd561114be8a33dc778bc00b919 
+
+- For p32139 allocations: List Professor Karan Ahuja as Allocation manager and PI
+- For b1042, b1218 allocations: List Bryan A Pardo (bap335) as Allocation manager and Predrag S Bundalo (psb996) as PI
 
 ## Storage Locations
 
